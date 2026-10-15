@@ -47,21 +47,30 @@
     '.mood-photo', '.strip-photo', '.team-card', '.acc-item', '.cta-band p', '.cta-band .cta-pair',
   ].join(',');
   const els = Array.from(document.querySelectorAll(selector)).filter((el) => !el.closest('.hero'));
-  // Соседи в одной сетке появляются лесенкой
+  // Соседи в одной сетке появляются лёгкой лесенкой
   els.forEach((el) => {
     const siblings = Array.from(el.parentElement.children).filter((s) => els.includes(s));
     const i = siblings.indexOf(el);
-    if (i > 0) el.style.setProperty('--d', `${Math.min(i, 5) * 0.09}s`);
+    if (i > 0) el.style.setProperty('--d', `${Math.min(i, 3) * 0.06}s`);
     el.classList.add('reveal');
   });
+  const show = (el) => { el.classList.add('is-visible'); io.unobserve(el); };
+  // Запускаем заранее — за 15% высоты экрана до появления блока, — чтобы при быстрой
+  // прокрутке человек не видел пустоту, пока блок проявляется
   const io = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) return;
-      entry.target.classList.add('is-visible');
-      io.unobserve(entry.target);
-    });
-  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
+    entries.forEach((entry) => { if (entry.isIntersecting) show(entry.target); });
+  }, { rootMargin: '0px 0px 15% 0px', threshold: 0 });
   els.forEach((el) => io.observe(el));
+  // Страховка: всё, что уже выше нижнего края экрана (рывок прокрутки, переход по якорю), — показать сразу
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => {
+      els.forEach((el) => { if (!el.classList.contains('is-visible') && el.getBoundingClientRect().top < innerHeight) show(el); });
+      ticking = false;
+    });
+  }, { passive: true });
 })();
 
 // ===== Карусель «Мастера» =====

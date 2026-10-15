@@ -249,6 +249,7 @@ a { color: inherit; text-decoration: none; }
   background: rgba(11,20,16,.3); backdrop-filter: blur(6px); transition: .3s var(--ease);
 }
 .hero-social a:hover { background: var(--gold); border-color: var(--gold); color: var(--green-900); }
+.hero-social svg, .footer-social svg { width: 18px; height: 18px; }
 .scroll-cue {
   position: absolute; left: 50%; bottom: 26px; transform: translateX(-50%);
   display: flex; flex-direction: column; align-items: center; gap: 10px;
@@ -562,7 +563,7 @@ a { color: inherit; text-decoration: none; }
 .why, .services, .offers, .mood, .reviews { padding-bottom: 0; }
 
 /* ===== Появление при прокрутке (классы ставит js/main.js) ===== */
-.reveal { opacity: 0; transform: translateY(28px); transition: opacity 1.1s var(--ease), transform 1.1s var(--ease); transition-delay: var(--d, 0s); }
+.reveal { opacity: 0; transform: translateY(16px); transition: opacity .6s var(--ease), transform .6s var(--ease); transition-delay: var(--d, 0s); }
 .reveal.is-visible { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
