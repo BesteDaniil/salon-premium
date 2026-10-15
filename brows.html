@@ -15,22 +15,28 @@
   <meta name="twitter:card" content="summary" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css?v=12" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css?v=13" />
 </head>
 <body>
   <!-- Header -->
   <header class="site-header" id="top">
     <div class="container header-inner">
-      <a href="index.html" class="logo">Look&nbsp;Star</a>
-      <nav class="nav" id="nav">
+      <a href="index.html" class="logo" aria-label="Look Star — на главную">Look&nbsp;Star<small>STUDIO</small></a>
+      <nav class="nav" id="nav" aria-label="Основное меню">
+        <a href="index.html#top">Главная</a>
         <a href="about.html">О нас</a>
         <a href="index.html#services">Услуги</a>
         <a href="index.html#offers">Акции</a>
         <a href="index.html#reviews">Отзывы</a>
         <a href="education.html">Обучение</a>
+        <div class="nav-extra">
+          <a href="tel:+79031900366">+7 (903) 190-03-66</a>
+          <span>Москва, проспект Вернадского, 119 · ежедневно 11:00 — 23:00</span>
+        </div>
       </nav>
-      <button class="burger" id="burger" aria-label="Меню">
+      <a href="tel:+79031900366" class="header-phone">+7 (903) 190-03-66</a>
+      <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="nav">
         <span></span><span></span><span></span>
       </button>
     </div>
@@ -40,6 +46,7 @@
     <section class="about container">
       <div class="about-photo" style="--img: var(--img-dir-brows)"></div>
       <div class="about-text">
+        <p class="eyebrow">Кабинет · 04</p>
         <h1 class="section-title">Брови, ресницы и перманент</h1>
         <p class="cab-lead">Оформление и архитектура бровей, наращивание и ламинирование ресниц, перманентный макияж.</p>
         <div class="direction-master">
@@ -53,7 +60,15 @@
       </div>
     </section>
 
+    <!-- Фото кабинета -->
+    <section class="strip container" aria-label="Фото кабинета">
+      <div class="strip-photo" style="--img: var(--img-brows-1)"></div>
+      <div class="strip-photo" style="--img: var(--img-brows-2)"></div>
+      <div class="strip-photo" style="--img: var(--img-brows-3)"></div>
+    </section>
+
     <section class="prices container">
+      <p class="eyebrow">Прайс</p>
       <h2 class="section-title">Услуги и цены</h2>
       <p class="prices-hint">Нажмите на категорию, чтобы раскрыть услуги и цены. Стоимость может уточняться в зависимости от длины и густоты волос.</p>
       <div class="accordion">
@@ -133,6 +148,7 @@
 
   <!-- Footer -->
   <footer class="site-footer" id="education">
+    <div class="footer-mark" aria-hidden="true">Look Star</div>
     <div class="container footer-inner">
       <div class="footer-col footer-about">
         <div class="footer-brand">Look Star</div>
@@ -184,6 +200,6 @@
     <div class="footer-bottom">© 2020–2026 Look Star. Все права защищены.</div>
   </footer>
 
-  <script src="js/main.js"></script>
+  <script src="js/main.js?v=13"></script>
 </body>
 </html>

@@ -15,23 +15,28 @@
   <meta name="twitter:card" content="summary" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css?v=12" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css?v=13" />
 </head>
 <body>
   <!-- Header -->
   <header class="site-header" id="top">
     <div class="container header-inner">
-      <a href="index.html" class="logo">Look&nbsp;Star</a>
-      <nav class="nav" id="nav">
+      <a href="index.html" class="logo" aria-label="Look Star — на главную">Look&nbsp;Star<small>STUDIO</small></a>
+      <nav class="nav" id="nav" aria-label="Основное меню">
         <a href="index.html#top">Главная</a>
         <a href="about.html">О нас</a>
         <a href="index.html#services">Услуги</a>
         <a href="index.html#offers">Акции</a>
         <a href="index.html#reviews">Отзывы</a>
-        <a href="education.html" class="active">Обучение</a>
+        <a href="education.html" aria-current="page">Обучение</a>
+        <div class="nav-extra">
+          <a href="tel:+79031900366">+7 (903) 190-03-66</a>
+          <span>Москва, проспект Вернадского, 119 · ежедневно 11:00 — 23:00</span>
+        </div>
       </nav>
-      <button class="burger" id="burger" aria-label="Меню">
+      <a href="tel:+79031900366" class="header-phone">+7 (903) 190-03-66</a>
+      <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="nav">
         <span></span><span></span><span></span>
       </button>
     </div>
@@ -42,6 +47,7 @@
     <section class="about container">
       <div class="about-photo" style="--img: var(--img-edu)"></div>
       <div class="about-text">
+        <p class="eyebrow">Наращивание волос · 1 на 1</p>
         <h1 class="section-title">Обучение</h1>
         <p class="edu-lead">Эксклюзивное индивидуальное обучение наращиванию волос.</p>
         <p>За первый день занятия вы получите намного больше, чем в обычном обучающем центре по наращиванию волос. Я знаю, о чём говорю — была во многих 😂</p>
@@ -52,6 +58,7 @@
 
     <!-- What's inside -->
     <section class="why container">
+      <p class="eyebrow">Программа</p>
       <h2 class="section-title">Что входит в обучение</h2>
       <div class="why-grid">
         <article class="why-card">
@@ -72,6 +79,7 @@
     <!-- Second day -->
     <section class="about about-rev container">
       <div class="about-text">
+        <p class="eyebrow">День второй</p>
         <h2 class="section-title">Второй день обучения</h2>
         <p>Плюсом ко всему — ещё и второй день. Вы самостоятельно приезжаете с моделью ко мне в салон и полностью делаете коррекцию. Я рядом и в любой момент подскажу, если что-то пойдёт не так — ненавязчиво, модель даже не поймёт, что вы неопытный мастер.</p>
         <p>Эта коррекция — качественная проработка ваших ошибок и закрепление материала. Второй день проводится минимум через неделю: даю информации осесть в голове, а вам — качественно подготовить накопившиеся вопросы. Иначе никак 🙏🌷</p>
@@ -83,6 +91,7 @@
 
   <!-- Footer -->
   <footer class="site-footer">
+    <div class="footer-mark" aria-hidden="true">Look Star</div>
     <div class="container footer-inner">
       <div class="footer-col footer-about">
         <div class="footer-brand">Look Star</div>
@@ -129,10 +138,11 @@
           Мы в Instagram
         </a>
         </div>
+      </div>
     </div>
     <div class="footer-bottom">© 2020–2026 Look Star. Все права защищены.</div>
   </footer>
 
-  <script src="js/main.js"></script>
+  <script src="js/main.js?v=13"></script>
 </body>
 </html>
