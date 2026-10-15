@@ -6,7 +6,7 @@
   const toggle = (open) => {
     burger.classList.toggle('open', open);
     nav.classList.toggle('open', open);
-    document.body.classList.toggle('menu-open', open);
+    document.documentElement.classList.toggle('menu-open', open);  // на html: блок на body ломает «липкую» шапку
     burger.setAttribute('aria-expanded', open ? 'true' : 'false');
   };
   burger.addEventListener('click', () => toggle(!nav.classList.contains('open')));
