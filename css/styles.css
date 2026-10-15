@@ -13,29 +13,32 @@
   --muted:     #9db0a4;   /* вторичный текст */
   --line:      rgba(143, 174, 155, 0.18);
 
-  /* Заглушки изображений (градиенты — заменишь на реальные фото) */
-  --img-hero:      linear-gradient(135deg, #20342a, #0e1a14);
-  --img-haircut:   linear-gradient(135deg, #1d3327, #0e1a14);
-  --img-color:     linear-gradient(135deg, #2a4a38, #122019);
+  /* Фото — images/*.webp; градиенты — ещё не заменённые заглушки */
+  --img-hero:      url("../images/hero.webp");
+  --img-haircut:   url("../images/haircut.webp");
+  --img-color:     url("../images/color.webp");
   --img-styling:   linear-gradient(135deg, #2f5240, #16271e);
   --img-treatment: linear-gradient(135deg, #234034, #0e1a14);
-  --img-care:      linear-gradient(135deg, #3c6450, #16271e);
+  --img-care:      url("../images/care.webp");
   --img-face:      linear-gradient(135deg, #2a4a38, #0e1a14);
-  --img-interior:  linear-gradient(135deg, #20342a, #0e1a14);
-  --img-interior2: linear-gradient(135deg, #1d3327, #16271e);
-  --img-interior3: linear-gradient(135deg, #2a4a38, #122019);
-  --img-interior4: linear-gradient(135deg, #16271e, #0a130e);
-  --img-interior5: linear-gradient(135deg, #2f5240, #16271e);
+  --img-interior:  url("../images/interior.webp");
+  --img-interior2: url("../images/interior2.webp");
+  --img-interior3: url("../images/interior3.webp");
+  --img-interior4: url("../images/interior4.webp");
+  --img-interior5: url("../images/interior5.webp");
   --img-master1:   linear-gradient(160deg, #2a4a38, #0e1a14);
   --img-master2:   linear-gradient(160deg, #234034, #122019);
   --img-master3:   linear-gradient(160deg, #2f5240, #16271e);
   --img-master4:   linear-gradient(160deg, #1d3327, #0a130e);
 
   /* Фото направлений (по одному на направление) */
-  --img-dir-hair:   linear-gradient(135deg, #2a4a38, #0e1a14);
-  --img-dir-nails:  linear-gradient(135deg, #2f5240, #122019);
-  --img-dir-makeup: linear-gradient(135deg, #234034, #0e1a14);
-  --img-dir-brows:  linear-gradient(135deg, #1d3327, #16271e);
+  --img-dir-hair:   url("../images/dir-hair.webp");
+  --img-dir-nails:  url("../images/dir-nails.webp");
+  --img-dir-makeup: url("../images/dir-makeup.webp");
+  --img-dir-brows:  url("../images/dir-brows.webp");
+
+  /* Фото «Обучения» (своё, чтобы не зависеть от карточки мастера) */
+  --img-edu:        url("../images/edu.webp");
 
   --radius: 18px;
   --maxw: 1180px;
@@ -161,7 +164,8 @@ a { color: inherit; text-decoration: none; }
 
 .hero-photo {
   position: relative; height: 460px; border-radius: var(--radius);
-  background-image: var(--img); background-size: cover; background-position: center;
+  /* 30% — на узком экране в кадре остаётся мастер слева (hero.webp); сменишь фото — проверь */
+  background-image: var(--img); background-size: cover; background-position: 30% center;
   border: 1px solid var(--line);
 }
 .hero-social {
@@ -522,6 +526,8 @@ a { color: inherit; text-decoration: none; }
   .service-tile.s-wide { grid-column: span 1; }
   .hero-cards { flex-direction: column; }
   .mini-card { max-width: none; }
+  /* Карточка здесь — узкая полоска с подписью слева: затемняем слева, иначе на светлом фото не читается */
+  .mini-card::before { background: linear-gradient(90deg, rgba(10,19,14,.8), rgba(10,19,14,.35)); }
   .gallery { grid-template-columns: 1fr 1fr; }
   .team-card { flex: 0 0 100%; }
   .footer-inner { grid-template-columns: 1fr; gap: 28px; }
